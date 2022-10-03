@@ -1,0 +1,129 @@
+def binary(a):
+    result, total, deg, formula = '', 0, 0, ''
+    for i in str(a)[::-1]:
+        dec = int(i) * 2 ** deg
+        result += str(dec) + ' + '
+        total += dec
+        formula += '(' + str(i) + ' * 2 ** ' + str(deg) + ')' + ' + '
+        deg += 1
+    print(formula[:-2], '=', result[:-2], '=', total)
+
+
+def octal(a):
+    result, total, deg, formula = '', 0, 0, ''
+    for i in str(a)[::-1]:
+        dec = int(i) * 8 ** deg
+        result += str(dec) + ' + '
+        total += dec
+        formula += '(' + str(i) + ' * 8 ** ' + str(deg) + ')' + ' + '
+        deg += 1
+    print(formula[:-2], '=', result[:-2], '=', total)
+
+
+def hexadecimal(a):
+    result, total, deg, formula = '', 0, 0, ''
+    for i in str(a)[::-1]:
+        if i == 'A':
+            i = '10'
+        elif i == 'B':
+            i = '11'
+        elif i == 'C':
+            i = '12'
+        elif i == 'D':
+            i = '13'
+        elif i == 'E':
+            i = '14'
+        elif i == 'F':
+            i = '15'
+        dec = int(i) * 16 ** deg
+        result += str(dec) + ' + '
+        total += dec
+        formula += '(' + str(i) + ' * 16 ** ' + str(deg) + ')' + ' + '
+        deg += 1
+    print(formula[:-2], '=', result[:-2], '=', total)
+
+
+def dec_to_bin(a):
+    deg, total = 0, 0
+
+    while a:
+        total += (a % 2) * (10 ** deg)
+        deg += 1
+        a //= 2
+    print(total)
+
+
+def dec_to_oct(a):
+    deg, total = 0, 0
+
+    while a:
+        total += (a % 8) * (10 ** deg)
+        deg += 1
+        a //= 8
+    print(total)
+
+
+def dec_to_hex(a):
+    deg, total, temp = 0, '', 0
+
+    while a:
+        temp = a % 16
+        if temp > 9:
+            if temp == 10:
+                total += 'A'
+            elif temp == 11:
+                total += 'B'
+            elif temp == 12:
+                total += 'C'
+            elif temp == 13:
+                total += 'D'
+            elif temp == 14:
+                total += 'E'
+            elif temp == 15:
+                total += 'F'
+        elif temp <= 9:
+            total += str(temp * (1 ** deg))
+        deg += 1
+        a //= 16
+    print(total[::-1])
+
+
+def frac_to_num_bin(a):
+    result, total, deg, formula = '', 0, 0, ''
+    for i in a.rsplit('.'):
+        print(i)
+
+
+def main():
+    x = input('1 - decimal to other\n2 - other to decimal\n3 - other fraction number to decimal\n')
+    if x == '1':
+        num_system, a = input("2, 8, 16: "), int(input('number: '))
+        if num_system == '2':
+            dec_to_bin(a)
+
+        if num_system == '8':
+            dec_to_oct(a)
+
+        if num_system == '16':
+            dec_to_hex(a)
+
+    if x == '2':
+        num_system, a = input("2, 8, 16: "), input('number: ')
+        if num_system == '2':
+            binary(a)
+
+        if num_system == '8':
+            octal(a)
+
+        if num_system == '16':
+            hexadecimal(a)
+
+    if x == '3':
+        num_system, a = input("2, 8, 16: "), input('number: ')
+        if num_system == '2':
+            frac_to_num_bin(a)
+
+if __name__ == '__main__':
+    main()
+
+# by erazero1
