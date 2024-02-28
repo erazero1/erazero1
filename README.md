@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @erazero1
 - 👀 I’m interested in programming
-- 🌱 I’m currently learning Java
+- 🌱 I’m currently learning Java && Kotlin
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ...
 
