@@ -1,5 +1,5 @@
 # 💫 About Me:
-I'm currently learning Mobile App Development
+I'm currently learning Kotlin
 
 
 ## 🌐 Socials:
